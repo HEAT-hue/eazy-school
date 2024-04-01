@@ -1,7 +1,10 @@
+import NavBar from "@/components/NavBar";
+import { Theme } from "@radix-ui/themes";
+import '@radix-ui/themes/styles.css';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import NextTopLoader from 'nextjs-toploader';
 import "./globals.css";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,7 +19,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <title>Eazy School - Best Education</title>
+      <body className={inter.className}>
+
+        {/* Top Loader */}
+        <NextTopLoader />
+
+        {/* Radix Theme Container */}
+        <Theme>
+
+          {/* Top fixed navigation */}
+          <NavBar />
+
+          {/* Home body */}
+          {children}
+
+        </Theme>
+
+      </body>
     </html>
   );
 }
